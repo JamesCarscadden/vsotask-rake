@@ -1,6 +1,7 @@
 var path = require('path');
 var tl = require('vso-task-lib');
 
+tl.setVariable('RAILS_ENV', 'test');
 var rake = new tl.ToolRunner(tl.which('rake', true));
 var cmd = tl.getInput('command', true);
 var bundleexec = tl.getInput('usebundle', false);
