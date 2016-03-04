@@ -1,7 +1,7 @@
 {
   "id": "f69ee420-8fbc-11e5-ad0f-5179c6bde7c1",
-  "name": "RakeTask",
-  "friendlyName": "Rake Task",
+  "name": "Rake",
+  "friendlyName": "Rake",
   "description": "Build using Rake (for Ruby and Rails)",
   "author": "James Carscadden",
   "helpMarkDown": "Replace with markdown to show in help",
@@ -15,27 +15,18 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "2"
+    "Patch": "3"
   },
   "minimumAgentVersion": "1.83.0",
-  "instanceNameFormat": "RakeTask $(message)",
+  "instanceNameFormat": "Rake $(command)",
+  "groups": [
+        {
+            "name": "advanced",
+            "displayName": "Advanced",
+            "isExpanded": false
+        }
+  ],
   "inputs": [
-    {
-      "name": "rakefile",
-      "type": "filePath",
-      "label": "Rake file",
-      "defaultValue": "Rakefile",
-      "required": false,
-      "helpMarkDown": "Path to the rake file."
-    },
-    {
-      "name": "rakelib",
-      "type": "filePath",
-      "label": "Rake lib directory",
-      "defaultValue": "rakelib",
-      "required": false,
-      "helpMarkDown": "Directory path to auto-import any .rake files."
-    },
     {
       "name": "command",
       "type": "string",
@@ -45,12 +36,49 @@
       "helpMarkDown": "The Rake task(s) to run"
     },
     {
+      "name": "rakefile",
+      "type": "filePath",
+      "label": "Rake file",
+      "defaultValue": "Rakefile",
+      "required": false,
+      "helpMarkDown": "Path to the rake file.",
+      "groupName": "advanced"
+    },
+    {
+      "name": "rakelib",
+      "type": "filePath",
+      "label": "Rake lib directory",
+      "defaultValue": "rakelib",
+      "required": false,
+      "helpMarkDown": "Directory path to auto-import any .rake files.",
+      "groupName": "advanced"
+    },
+    {
       "name": "usebundle",
       "type": "boolean",
       "label": "Use bundle exec",
       "defaultValue": "true",
       "required": false,
-      "helpMarkDown": "Whether to use bundle exec to run rake or not"
+      "helpMarkDown": "Whether to use bundle exec to run rake or not",
+      "groupName": "advanced"
+    },
+    {
+      "name": "dbconnection",
+      "type": "string",
+      "label": "Database connection",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "This will set the ENV['DATABASE_URL'] variable",
+      "groupName": "advanced"
+    },
+    {
+      "name": "railsenvironment",
+      "type": "string",
+      "label": "Rails environment",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "This will set the ENV['RAILS_ENV'] variable",
+      "groupName": "advanced"
     }
   ],
   "execution": {
